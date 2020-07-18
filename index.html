@@ -113,6 +113,71 @@
   }
 </style>
 
+
+<body>
+
+  </div>
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+          // iOS web app full screen hacks.
+          if(window.navigator.standalone == true) {
+                  // make all link remain in web app mode.
+                  $('a').click(function() {
+                          window.location = $(this).attr('href');
+              return false;
+                  });
+          }
+  });
+  </script>
+
+
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('body').fadeIn('slow');
+
+
+
+
+});
+</script>
+
+
+<div class="popup" onclick="myFunction()">Click me!
+  <span class="popuptext" id="myPopup">I do NOTHING!!!</span>
+</div>
+
+<style>
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
 /* Popup arrow */
 .popup .popuptext::after {
   content: "";
@@ -146,20 +211,17 @@
 </head>
 <body style="text-align:center">
 
-<h2>Click me</h2>
 
-<div class="popup" onclick="myFunction()">Click me !
-  <span class="popuptext" id="myPopup">I do nothing!</span>
-</div>
 
 <script>
-// When the user clicks on div, open the popup
+// When the user clicks on <div>, open the popup
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
 </script>
 
-</body>
+<p class="disclaimer">99.9% chance i'll break something</p>
+
 </html>
 
