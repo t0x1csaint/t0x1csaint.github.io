@@ -1,84 +1,162 @@
-<!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* Popup container - can be anything you want */
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+  <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-language" content="en-gb">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
+  <title>Server Portal</title>
+    <meta property="og:title" content="Server Portal">
+  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Server Portal">
+  <meta property="og:description" content="Server Portal">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
 
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 </head>
-<body style="text-align:center">
+<style>
 
-Your IP address is: <? echo $_SERVER["REMOTE_ADDR"]; ?>
+  body {
+    background: linear-gradient(0deg, rgb(18,77, 82), rgb(10, 42, 72));
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    padding-top: 100px !important;
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    text-align: center !important;
+    display: none;
+  }
 
-<h2>Popup</h2>
+  .credits-top {
+    font-size: 0.80em;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: rgba(255, 255, 255, 0.5);
 
-<div class="popup" onclick="myFunction()">Click me to toggle the popup!
-  <span class="popuptext" id="myPopup">A Simple Popup!</span>
-</div>
+  }
+  .download-btn {
 
-<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
+    color: white;
+    text-decoration:none;
+    background: #1896c65c;
+    box-shadow: 0px 0px 25px #1896c65c;
+
+    padding-top: 13px !important;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+    padding-bottom: 13px !important;
+
+    border-radius: 100px;
+    font-weight: bold;
+
+  }
+
+  .credits-bottom {
+    font-size: 0.9em;
+    padding-top: 100px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: rgba(255, 255, 255, 0.5);
+
+  }
+
+  .installation {
+    display: inline-block;
+    padding: 30px;
+    padding-left: 50px;
+    padding-top: 5px !important;
+    text-align: left;
+    opacity: 0.9;
+    font-size: 0.9em;
+  }
+
+
+  .dotted-list {
+    display: inline-block;
+    padding: 30px;
+    padding-left: 50px;
+    padding-top: 5px !important;
+    text-align: left;
+    opacity: 0.9;
+    list-style-type: circle;
+    font-size: 0.8em;
+  }
+
+  .warning-message {
+    font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .twitter-link {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: underline;
+  }
+
+
+  .donation-info {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.70em;
+  }
+  .disclaimer {
+    opacity: 0.6;
+    padding-top: 20px;
+    font-size: 0.9em;
+  }
+</style>
+
+
+<body>
+
+  <a style="text-decoration: none; color: white; font-weight: light;"><h1>Server Portal</h1></a>
+
+
+
+  <div style="padding-top: 15px;">
+    <a class="download-btn" href="http://192.168.1.24:9117" rel="nofollow">Jackett</a>
+  </div>
+
+  <div style="padding-top: 45px;">
+    <a class="download-btn" href="http://192.168.1.24:7878" rel="nofollow">Radarr</a>
+  </div>
+
+  <div style="padding-top: 45px;">
+    <a class="download-btn" href="http://192.168.1.24:8112" rel="nofollow">Deluge-web</a>
+  </div>
+
+  <p class="disclaimer">99.9% chance i'll break something</p>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+          // iOS web app full screen hacks.
+          if(window.navigator.standalone == true) {
+                  // make all link remain in web app mode.
+                  $('a').click(function() {
+                          window.location = $(this).attr('href');
+              return false;
+                  });
+          }
+  });
+  </script>
+
 
 </body>
-</html>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('body').fadeIn('slow');
 
+
+
+
+});
+</script>
+
+</html>
